@@ -1,0 +1,27 @@
+name: Daily Scheduled Commit
+
+on:
+    schedule:
+        # Runs at 14:30 (2:30 PM) UTC every day
+        - cron: "30 14 * * *"
+    # Allows testing the workflow immediately without waiting for the schedule
+    workflow_dispatch:
+
+jobs:
+    daily_commit:
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write # Need permission to push the automatic commit back to the repo
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Commit and update logs for 23f2005044@ds.study.iitm.ac.in
+              run: |
+                  echo "Automated daily activity recorded at $(date)" >> daily-activity.log
+                  git config --local user.email "github-actions[bot]@users.noreply.github.com"
+                  git config --local user.name "github-actions[bot]"
+                  git add daily-activity.log
+                  git commit -m "Automated daily commit"
+                  git push
