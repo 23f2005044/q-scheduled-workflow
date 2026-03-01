@@ -1,5 +1,7 @@
 # Scheduled Workflow
 
+[![Daily Scheduled Commit](https://github.com/23f2005044/q-scheduled-workflow/actions/workflows/scheduler.yaml/badge.svg)](https://github.com/23f2005044/q-scheduled-workflow/actions/workflows/scheduler.yaml)
+
 A simple repo setup for TDS assignment for scheduled workflow.
 
 ## Workflow
